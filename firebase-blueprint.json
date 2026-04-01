@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User account and credit information",
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "Firebase Auth UID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Google display name"
+        },
+        "email": {
+          "type": "string",
+          "description": "Google email"
+        },
+        "credits": {
+          "type": "integer",
+          "description": "Remaining credits"
+        },
+        "last_refresh": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of last credit refresh (YYYY-MM-DD)"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Account creation timestamp"
+        }
+      },
+      "required": ["user_id", "name", "email", "credits", "last_refresh", "created_at"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and credit management"
+    }
+  }
+}
